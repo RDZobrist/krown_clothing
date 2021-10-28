@@ -8,7 +8,6 @@ class SignIn extends React.Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
             email: '',
             password: ''
@@ -61,11 +60,12 @@ class SignIn extends React.Component {
                     />
 
                     <div className='buttons'>
-
-                        <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google</CustomButton>
-
-                        {/* <CustomButton type='button' onClick={signInWithFacebook} isFacebookSignIn> Sign in with Facebook </CustomButton> */}
+                        <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn> Google</CustomButton>
+                        <br />
+                        <CustomButton type='button' onClick={signInWithFacebook} isFacebookSignIn> Facebook </CustomButton>
+                        <br />
                         <CustomButton type='submit'> Sign In </CustomButton>
+                        <br />
                     </div>
                 </form>
             </div>

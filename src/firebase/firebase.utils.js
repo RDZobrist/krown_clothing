@@ -9,13 +9,17 @@ import {FacebookAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
 export const signInWithFacebook = ()=>(
   signInWithPopup(auth, fbProvider)
   .then((result) => {
-    console.log(result.user)
     // The signed-in user info.
     const user = result.user;
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     const credential = FacebookAuthProvider.credentialFromResult(result);
     const accessToken = credential.accessToken;
-
+    const resultObject = {
+      user,
+      credential,
+      accessToken
+    }
+    return console.log(resultObject)
     // ...
   })
   .catch((error) => {
@@ -26,7 +30,13 @@ export const signInWithFacebook = ()=>(
     const email = error.email;
     // The AuthCredential type that was used.
     const credential = FacebookAuthProvider.credentialFromError(error);
-
+    const userObjectFacebook = {
+      errorCode,
+      errorMessage,
+      email,
+      credential: credential.accessToken
+    }
+    return console.log(userObjectFacebook)
     // ...
   })
 )
