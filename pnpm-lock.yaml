@@ -14,6 +14,7 @@ specifiers:
   react-scripts: 4.0.3
   redux: ^4.1.1
   redux-logger: ^3.0.6
+  reselect: ^4.1.1
   web-vitals: ^1.1.2
 
 dependencies:
@@ -30,6 +31,7 @@ dependencies:
   react-scripts: 4.0.3_node-sass@6.0.1+react@17.0.2
   redux: 4.1.2
   redux-logger: 3.0.6
+  reselect: 4.1.1
   web-vitals: 1.1.2
 
 packages:
@@ -10953,6 +10955,10 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    dev: false
+
+  /reselect/4.1.1:
+    resolution: {integrity: sha512-Jjt8Us6hAWJpjucyladHvUGR+q1mHHgWtGDXlhvvKyNyIeQ3bjuWLDX0bsTLhbm/gd4iXEACBlODUHBlLWiNnA==}
     dev: false
 
   /resolve-cwd/2.0.0:
