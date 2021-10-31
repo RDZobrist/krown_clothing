@@ -13,6 +13,8 @@ const CollectionItem = ({ item, addItem }) => {
     <div className='collection-item'>
       <div
         className='image'
+        loading="lazy"
+        decoding="async"
         style={{
           backgroundImage: `url(${imageUrl})`
         }}
