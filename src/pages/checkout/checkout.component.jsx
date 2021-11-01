@@ -17,14 +17,14 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
         </div>
         {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
         <div className="total pre">
-            <span>Total: ${new Intl.NumberFormat('en-us').format(total)}</span>
+            <span> Total: ${new Intl.NumberFormat('en-us').format(total)}</span>
         </div>
         <div className="total pre">
-            <span>Tax: ${tax.toFixed(2)}</span>
+            <span> Tax: ${tax.toFixed(2)}</span>
         </div>
 
         <div className="total">
-            <span>Amount Due: ${new Intl.NumberFormat('en-us').format(total + tax)}</span>
+            <span> Amount Due: ${new Intl.NumberFormat('en-us').format(total + tax)}</span>
         </div>
     </div>
 )
