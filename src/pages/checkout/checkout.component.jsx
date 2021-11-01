@@ -6,7 +6,7 @@ import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selector
 import './checkout.styles.scss';
 
 
-const CheckoutPage = ({cartItems, total}) => (
+const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
     <div className='checkout-page'>
         <div className='checkout-header'>
             <div className="header-block"><span>Product</span></div>
@@ -15,9 +15,16 @@ const CheckoutPage = ({cartItems, total}) => (
             <div className="header-block"><span>Price</span></div>
             <div className="header-block"><span>Remove</span></div>
         </div>
-        {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id}/>))}
+        {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
+        <div className="total pre">
+            <span>Total: ${new Intl.NumberFormat('en-us').format(total)}</span>
+        </div>
+        <div className="total pre">
+            <span>Tax: ${tax.toFixed(2)}</span>
+        </div>
+
         <div className="total">
-            <span>TOTAL: ${total}</span>
+            <span>Amount Due: ${new Intl.NumberFormat('en-us').format(total + tax)}</span>
         </div>
     </div>
 )
