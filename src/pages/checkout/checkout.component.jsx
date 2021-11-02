@@ -17,43 +17,43 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
         </div>
         {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
         {cartItems.length
-        ? 
-        (
-            <Fragment>
-                <div className="total pre">
-                    <span>{new Intl.NumberFormat('en-us', {
-                        style: 'currency',
-                        currency: 'USD',
-                        currencyDisplay: 'symbol',
-                    }).format(total)}      subtotal</span>
-                </div>
-                <div className="total pre">
-                    <span>(+)   {new Intl.NumberFormat('en-us', {
-                        style: 'currency',
-                        currency: 'USD',
-                        currencyDisplay: 'symbol',
-                    }).format(tax)}      tax</span>
-                </div>
-                <div className="total">
-            <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
-                style: 'currency',
-                currency: 'USD',
-                currencyDisplay: 'symbol',
-            }).format(total + tax)}</span>
-        </div>
-        <div className="total pre">Shipping and Handling free on orders over $50.00</div>
-            </ Fragment>
-        ) 
-        :         <div className="total">
-        <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
-            style: 'currency',
-            currency: 'USD',
-            currencyDisplay: 'symbol',
-        }).format(total + tax)}</span>
-    </div>
+            ?
+            (
+                <Fragment>
+                    <div className="total pre">
+                        <span>{new Intl.NumberFormat('en-us', {
+                            style: 'currency',
+                            currency: 'USD',
+                            currencyDisplay: 'symbol',
+                        }).format(total)}      subtotal</span>
+                    </div>
+                    <div className="total pre">
+                        <span>(+)   {new Intl.NumberFormat('en-us', {
+                            style: 'currency',
+                            currency: 'USD',
+                            currencyDisplay: 'symbol',
+                        }).format(tax)}      tax</span>
+                    </div>
+                    <div className="total">
+                        <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
+                            style: 'currency',
+                            currency: 'USD',
+                            currencyDisplay: 'symbol',
+                        }).format(total + tax)}</span>
+                    </div>
+                    <div className="total pre">Shipping and Handling free on orders over $50.00</div>
+                </ Fragment>
+            )
+            : <div className="total">
+                <span>{new Intl.NumberFormat('en-us', {
+                    style: 'currency',
+                    currency: 'USD',
+                    currencyDisplay: 'symbol',
+                }).format(total + tax)}</span>
+            </div>
         }
 
-    
+
     </div>
 )
 const mapStateToProps = createStructuredSelector({
