@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import  StripeCheckoutButton  from "../../components/checkout-button/stripe-button.component";
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
 import './checkout.styles.scss';
 
@@ -53,7 +54,11 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
             </div>
         }
 
-
+        <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
+                    style: 'currency',
+                    currency: 'USD',
+                    currencyDisplay: 'symbol',
+                }).format(total + tax)} />
     </div>
 )
 const mapStateToProps = createStructuredSelector({
