@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
@@ -16,16 +16,44 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
             <div className="header-block"><span>Remove</span></div>
         </div>
         {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
-        <div className="total pre">
-            <span> Total: ${new Intl.NumberFormat('en-us').format(total)}</span>
+        {cartItems.length
+        ? 
+        (
+            <Fragment>
+                <div className="total pre">
+                    <span>{new Intl.NumberFormat('en-us', {
+                        style: 'currency',
+                        currency: 'USD',
+                        currencyDisplay: 'symbol',
+                    }).format(total)}      subtotal</span>
+                </div>
+                <div className="total pre">
+                    <span>(+)   {new Intl.NumberFormat('en-us', {
+                        style: 'currency',
+                        currency: 'USD',
+                        currencyDisplay: 'symbol',
+                    }).format(tax)}      tax</span>
+                </div>
+                <div className="total">
+            <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
+                style: 'currency',
+                currency: 'USD',
+                currencyDisplay: 'symbol',
+            }).format(total + tax)}</span>
         </div>
-        <div className="total pre">
-            <span> Tax: ${tax.toFixed(2)}</span>
-        </div>
+        <div className="total pre">Shipping and Handling free on orders over $50.00</div>
+            </ Fragment>
+        ) 
+        :         <div className="total">
+        <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'symbol',
+        }).format(total + tax)}</span>
+    </div>
+        }
 
-        <div className="total">
-            <span> Amount Due: ${new Intl.NumberFormat('en-us').format(total + tax)}</span>
-        </div>
+    
     </div>
 )
 const mapStateToProps = createStructuredSelector({
