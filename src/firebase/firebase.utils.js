@@ -30,13 +30,7 @@ export const signInWithFacebook = ()=>(
     const email = error.email;
     // The AuthCredential type that was used.
     const credential = FacebookAuthProvider.credentialFromError(error);
-    const userObjectFacebook = {
-      errorCode,
-      errorMessage,
-      email,
-      credential: credential.accessToken
-    }
-    return console.log(userObjectFacebook)
+    console.log(error)
     // ...
   })
 )
