@@ -31,8 +31,17 @@
       &.pre {
         font-size: 98%
       }
+      button {
+        margin-left: auto;
+        margin-top: 50px;
+      }
    
     }
-
+    .test-warning {
+      text-align: center;
+      color: red;
+      font-size: 32px;
+      margin-top: 20px;
+    }
 
   }

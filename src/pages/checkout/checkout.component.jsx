@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
-import  StripeCheckoutButton  from "../../components/checkout-button/stripe-button.component";
+import StripeCheckoutButton from "../../components/checkout-button/stripe-button.component";
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
 import './checkout.styles.scss';
 
@@ -42,7 +42,20 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
                             currencyDisplay: 'symbol',
                         }).format(total + tax)}</span>
                     </div>
-                    <div className="total pre">Shipping and Handling free on orders over $50.00</div>
+                    {(total <= 49.99 && total > 0) ? (<Fragment><div className="total pre">Shipping and Handling free on orders over $50.00</div></Fragment>) : null}
+                    <div className="test-warning">
+                       * * * * <br/>Please use the folowing credit card for payments
+                        <br />
+                        4242 4242 4242 4242
+                        <br />
+                        Exp: 11/26 -- CVV: 424
+                    </div>
+
+                    <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
+                        style: 'currency',
+                        currency: 'USD',
+                        currencyDisplay: 'symbol',
+                    }).format(total + tax)} />
                 </ Fragment>
             )
             : <div className="total">
@@ -54,11 +67,6 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
             </div>
         }
 
-        <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
-                    style: 'currency',
-                    currency: 'USD',
-                    currencyDisplay: 'symbol',
-                }).format(total + tax)} />
     </div>
 )
 const mapStateToProps = createStructuredSelector({
