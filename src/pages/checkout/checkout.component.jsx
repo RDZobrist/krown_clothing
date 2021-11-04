@@ -46,29 +46,31 @@ const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => (
                             currency: 'USD',
                             currencyDisplay: 'symbol',
                         }).format(tax)}      tax</SubtotalSpan>
-                    </TotalContainer>
 
+                    </TotalContainer>
+                    {(total > 0.01 && total <= 49.99) ? (<TotalContainer><SubtotalSpan>Shipping and Handling free on orders over $50.00</SubtotalSpan></TotalContainer>
+                    ) : null}
                     <TotalContainer>
 
-                        <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
+                        <span>Amount Due  {new Intl.NumberFormat('en-us', {
                             style: 'currency',
                             currency: 'USD',
                             currencyDisplay: 'symbol',
                         }).format(total + tax)}</span>
                     </TotalContainer>
-                    {(total <= 49.99 && total > 0) ? (<Fragment><div className="total pre">Shipping and Handling free on orders over $50.00</div></Fragment>) : null}
+                    {(total <= 49.99 && total > 0) ? (<Fragment ></Fragment>) : null}
                     <TestWarningccinfoContainer>
                         * * * * <br />Please use the folowing credit card for payments
                         <br />
                         4242 4242 4242 4242
                         <br />
                         Exp: 11/26 -- CVV: 424
-                    <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
-                        style: 'currency',
-                        currency: 'USD',
-                        currencyDisplay: 'symbol',
-                    }).format(total + tax)} />
-                                            </TestWarningccinfoContainer>
+                        <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
+                            style: 'currency',
+                            currency: 'USD',
+                            currencyDisplay: 'symbol',
+                        }).format(total + tax)} />
+                    </TestWarningccinfoContainer>
 
                 </ Fragment>
             )

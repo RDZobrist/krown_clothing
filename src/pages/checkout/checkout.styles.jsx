@@ -28,12 +28,15 @@ export const CheckoutHeaderBlock = styled.div`
 export const TotalContainer = styled.div` 
     margin-top: 1%;
     margin-left: auto;
-    font-size: 1.75rem;
+    font-size: 1.90rem;
     font-weight: 500;
   
 `;
 export const SubtotalSpan = styled.span`
-    font-size: 66.6667%;
+    font-size: 50%;
+    font-weight: lighter;
+    margin: 0;
+    padding; 0;
 `;
 
 export const TestWarningccinfoContainer = styled.div`
