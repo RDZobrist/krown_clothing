@@ -4,19 +4,23 @@ import { createStructuredSelector } from "reselect";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import StripeCheckoutButton from "../../components/checkout-button/stripe-button.component";
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 import './checkout.styles.scss';
 import { CheckoutPageContainer, CheckoutHeaderContainer } from "./checkout.styles";
 
-const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
+const CheckoutPage = ({currentUser, cartItems, total, tax = total * .08 }) => (
     <CheckoutPageContainer>
+
+        {currentUser != null ? (<Fragment><h3>{currentUser.displayName}'s cart</h3><br/></Fragment>) :(null)}
         <CheckoutHeaderContainer>
+            
             <div className="header-block"><span>Product</span></div>
             <div className="header-block"><span>Description</span></div>
             <div className="header-block"><span>Quantity</span></div>
             <div className="header-block"><span>Price</span></div>
             <div className="header-block"><span>Remove</span></div>
         </CheckoutHeaderContainer>
-        {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
+        {cartItems.map(cartItem => ( <CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
         {cartItems.length
             ?
             (
@@ -70,6 +74,7 @@ const CheckoutPage = ({ cartItems, total, tax = total * .08 }) => (
 )
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
-    total: selectCartTotal
+    total: selectCartTotal,
+    currentUser: selectCurrentUser
 })
 export default connect(mapStateToProps)(CheckoutPage)
