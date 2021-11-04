@@ -1,10 +1,13 @@
 .collection-item {
-  width: 22vw;
+  width: 21.95vw;
   display: flex;
   flex-direction: column;
   height: 350px;
   align-items: center;
   position: relative;
+  border-radius: 6.66px;
+
+
 
   .image {
     width: 100%;
@@ -12,6 +15,8 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
+    border-radius: .777vh;
+
   }
 
   .custom-button {
@@ -19,6 +24,7 @@
     opacity: 0.7;
     position: absolute;
     top: 255px;
+    border-radius: .777vh;
     display: none;
   }
 
@@ -30,6 +36,8 @@
     .custom-button {
       opacity: 0.85;
       display: flex;
+      border-radius: .777vh;
+
     }
   }
 

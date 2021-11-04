@@ -3,9 +3,14 @@
   display: flex;
   height: 80px;
   margin-bottom: 15px;
+  border-radius: .777vh;
+  border-bottom: .02vh solid rgb(190, 190, 190);
+
 
   img {
     width: 30%;
+    border-radius: .777vh;
+
   }
 
   .item-details {
