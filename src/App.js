@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -41,7 +41,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+        <Fragment>
         <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
@@ -67,8 +67,7 @@ class App extends React.Component {
             }
           />
         </Switch>
-      </div>
-    );
+        </Fragment>    );
   }
 }
 

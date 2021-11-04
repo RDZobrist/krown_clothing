@@ -5,70 +5,81 @@ import CheckoutItem from "../../components/checkout-item/checkout-item.component
 import StripeCheckoutButton from "../../components/checkout-button/stripe-button.component";
 import { selectCartItems, selectCartTotal } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selector";
-import './checkout.styles.scss';
-import { CheckoutPageContainer, CheckoutHeaderContainer } from "./checkout.styles";
+import {
+    CheckoutPageContainer,
+    CheckoutHeaderContainer,
+    SubtotalSpan,
+    CheckoutHeaderBlock,
+    TotalContainer,
+    TestWarningccinfoContainer
+} from "./checkout.styles";
 
-const CheckoutPage = ({currentUser, cartItems, total, tax = total * .08 }) => (
+const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => (
     <CheckoutPageContainer>
 
-        {currentUser != null ? (<Fragment><h3>{currentUser.displayName}'s cart</h3><br/></Fragment>) :(null)}
+        {currentUser != null ? (<Fragment><h3>{currentUser.displayName}'s cart</h3><br /></Fragment>) : (null)}
         <CheckoutHeaderContainer>
-            
-            <div className="header-block"><span>Product</span></div>
-            <div className="header-block"><span>Description</span></div>
-            <div className="header-block"><span>Quantity</span></div>
-            <div className="header-block"><span>Price</span></div>
-            <div className="header-block"><span>Remove</span></div>
+
+            <CheckoutHeaderBlock><span>Product</span></CheckoutHeaderBlock>
+            <CheckoutHeaderBlock><span>Description</span></CheckoutHeaderBlock>
+            <CheckoutHeaderBlock><span>Quantity</span></CheckoutHeaderBlock>
+            <CheckoutHeaderBlock><span>Price</span></CheckoutHeaderBlock>
+            <CheckoutHeaderBlock><span>Remove</span></CheckoutHeaderBlock>
         </CheckoutHeaderContainer>
-        {cartItems.map(cartItem => ( <CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
+        {cartItems.map(cartItem => (<CheckoutItem cartItem={cartItem} key={cartItem.id} />))}
         {cartItems.length
             ?
             (
                 <Fragment>
-                    <div className="total pre">
-                        <span>{new Intl.NumberFormat('en-us', {
+                    <TotalContainer>
+                        <SubtotalSpan>{new Intl.NumberFormat('en-us', {
                             style: 'currency',
                             currency: 'USD',
                             currencyDisplay: 'symbol',
-                        }).format(total)}      subtotal</span>
-                    </div>
-                    <div className="total pre">
-                        <span>(+)   {new Intl.NumberFormat('en-us', {
+                        }).format(total)}      subtotal</SubtotalSpan>
+                    </TotalContainer>
+
+                    <TotalContainer>
+
+                        <SubtotalSpan>(+)   {new Intl.NumberFormat('en-us', {
                             style: 'currency',
                             currency: 'USD',
                             currencyDisplay: 'symbol',
-                        }).format(tax)}      tax</span>
-                    </div>
-                    <div className="total">
+                        }).format(tax)}      tax</SubtotalSpan>
+                    </TotalContainer>
+
+                    <TotalContainer>
+
                         <span>Amount Due(estimated) {new Intl.NumberFormat('en-us', {
                             style: 'currency',
                             currency: 'USD',
                             currencyDisplay: 'symbol',
                         }).format(total + tax)}</span>
-                    </div>
+                    </TotalContainer>
                     {(total <= 49.99 && total > 0) ? (<Fragment><div className="total pre">Shipping and Handling free on orders over $50.00</div></Fragment>) : null}
-                    <div className="test-warning">
+                    <TestWarningccinfoContainer>
                         * * * * <br />Please use the folowing credit card for payments
                         <br />
                         4242 4242 4242 4242
                         <br />
                         Exp: 11/26 -- CVV: 424
-                    </div>
-
                     <StripeCheckoutButton price={new Intl.NumberFormat('en-us', {
                         style: 'currency',
                         currency: 'USD',
                         currencyDisplay: 'symbol',
                     }).format(total + tax)} />
+                                            </TestWarningccinfoContainer>
+
                 </ Fragment>
             )
-            : <div className="total">
+            : <TotalContainer>
+
                 <span>{new Intl.NumberFormat('en-us', {
                     style: 'currency',
                     currency: 'USD',
                     currencyDisplay: 'symbol',
                 }).format(total + tax)}</span>
-            </div>
+            </TotalContainer>
         }
     </CheckoutPageContainer>
 )
