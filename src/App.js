@@ -14,13 +14,14 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { fetchCollectionStartAsync } from '../src/redux/shop/shop.actions';
+import AdminDashboard from './pages/addmin/addProduct/addProduct.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
     const { setCurrentUser, fetchCollectionStartAsync } = this.props;
-    fetchCollectionStartAsync();
+    // fetchCollectionStartAsync();
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -68,6 +69,11 @@ class App extends React.Component {
                 <SignInAndSignUpPage />
               )
             }
+          />
+               <Route
+            exact
+            path='/admin'
+            component={AdminDashboard}
           />
         </Switch>
         </Fragment>    );

@@ -57,6 +57,9 @@ const firebaseConfig = {
       const createdAt = new Date();
       try {
         await userRef.set({
+          adminSuper: false,
+          admin: false,
+          manager: false,
           displayName,
           email,
           createdAt,
