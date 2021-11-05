@@ -13,13 +13,14 @@ import {  auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 import { selectCurrentUser } from './redux/user/user.selector';
-
+import { fetchCollectionStartAsync } from '../src/redux/shop/shop.actions';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, fetchCollectionStartAsync } = this.props;
+    fetchCollectionStartAsync();
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -76,7 +77,9 @@ class App extends React.Component {
 const mapStateToProps = createStructuredSelector({ currentUser: selectCurrentUser });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  fetchCollectionStartAsync: () => dispatch(fetchCollectionStartAsync())
+
 });
 
 export default connect(

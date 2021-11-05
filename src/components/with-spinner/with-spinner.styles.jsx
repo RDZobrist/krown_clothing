@@ -15,8 +15,8 @@ export const SpinnerContainer = styled.div`
   border: .202rem solid rgba(188, 188, 188, 0.88);
   border-radius: 50%;
   border-top-color: #626767;
-  animation: spin 283ms ease-in-out infinite;
-  -webkit-animation: spin 283ms ease-in-out infinite;
+  animation: spin 421ms ease-in-out infinite;
+  -webkit-animation: spin 421ms ease-in-out infinite;
   @keyframes spin {
     to {
       -webkit-transform: rotate(360deg);
