@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CollectionItem from "../../components/collection-item/collection-item.component";
-import { CollectionPageContainer, Title, CollectionItemsContainer } from "./collection.styles";
+import { CollectionPageContainer, CollectionTitle, CollectionItemsContainer } from "./collection.styles";
 import { selectCollection, selectCollections } from "../../redux/shop/shop.selectors";
 // import './collection.styles.scss';
 
@@ -10,7 +10,7 @@ const CollectionPage = ({ collection }) => {
     const { title, items } = collection;
     return (
         <CollectionPageContainer>
-            <Title>{title}</Title>
+            <CollectionTitle>{title}</CollectionTitle>
             <CollectionItemsContainer>
 
                 {
