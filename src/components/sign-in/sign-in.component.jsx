@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { auth, signInWithFacebook, signInWithGoogle } from '../../firebase/firebase.utils';
-
+import { emailSigninStart, googleSigninStart } from '../../redux/user/user.actions';
 import { SigninContainer, SigninandSignupButtonContainer } from './sign-in.styles';
+
 import { SignupTitle } from '../sign-up/sign-up.styles'
 
 class SignIn extends React.Component {
@@ -20,15 +20,12 @@ class SignIn extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-
+    const { emailSigninStart } = this.props;
     const { email, password } = this.state;
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: '', password: '' });
-    } catch (error) {
-      console.log(error);
-    }
+    emailSigninStart(email, password);
+
+
   };
 
   handleChange = event => {
@@ -38,6 +35,7 @@ class SignIn extends React.Component {
   };
 
   render() {
+    const { googleSigninStart, emailSigninStart } = this.props;
     return (
       <SigninContainer>      <SignupTitle>I already have an account</SignupTitle>
         <span>Sign in with your email and password</span>
@@ -59,17 +57,26 @@ class SignIn extends React.Component {
             label='password'
             required
           />
-          <SigninandSignupButtonContainer>            <CustomButton type='submit'> Sign in </CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+          <SigninandSignupButtonContainer>
+          <CustomButton type='submit'> Sign in </CustomButton>
+            <CustomButton
+              type='button'
+              onClick={googleSigninStart}
+              isGoogleSignIn
+            >
               Google
             </CustomButton>
-            <CustomButton onClick={signInWithFacebook} isFacebookSignIn>
+            {/* <CustomButton onClick={signInWithFacebook} isFacebookSignIn>
               Facebook
-            </CustomButton>
+            </CustomButton> */}
           </SigninandSignupButtonContainer>        </form>
       </SigninContainer>
     );
   }
 }
-
-export default SignIn;
+const mapDispatchToProps = dispatch => ({
+  googleSigninStart: () => dispatch(googleSigninStart()),
+  emailSigninStart: (email, password) =>
+    dispatch(emailSigninStart({ email, password }))
+});
+export default connect(null, mapDispatchToProps)(SignIn);
