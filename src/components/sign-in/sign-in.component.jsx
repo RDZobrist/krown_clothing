@@ -27,16 +27,19 @@ const SignIn = ({ emailSigninStart, googleSigninStart }) => {
   };
 
     return (
-      <SigninContainer>      <SignupTitle>I already have an account</SignupTitle>
+      <SigninContainer>      
+        <SignupTitle>I already have an account</SignupTitle>
         <span>Sign in with your email and password</span>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
+        <input type='hidden' value='prayer' />
           <FormInput
             name='email'
             type='email'
             handleChange={handleChange}
             value={userCredentials.email}
             label='email'
+            autoComplete="off"
             required
           />
           <FormInput
@@ -45,6 +48,7 @@ const SignIn = ({ emailSigninStart, googleSigninStart }) => {
             value={userCredentials.password}
             handleChange={handleChange}
             label='password'
+            autoComplete="off"
             required
           />
           <SigninandSignupButtonContainer>
