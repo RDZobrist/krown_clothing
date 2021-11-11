@@ -20,10 +20,7 @@ export const selectCartHidden = createSelector(
   [selectCart],
   cart => cart.hidden
 );
-// export const selectCartTax = createSelector(
-//   [selectCartTotal = null],
-//   (subtotal, taxPercent = 8) => subtotal * (taxPercent / 100)
-// )
+
 
 export const selectCartTotal = createSelector(
   [selectCartItems],

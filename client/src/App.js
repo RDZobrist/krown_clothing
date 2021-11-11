@@ -10,6 +10,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { GlobalStyle} from './global.styles'
 import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import { selectCartItemsCount } from './redux/cart/cart.selectors';
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'));
@@ -17,7 +18,7 @@ const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const AdminDashboard = lazy(() => import('./pages/admin-dashboard/admin-dashboard.component'))
 
-const App = ({ checkUserSession, currentUser }) => {
+const App = ({ checkUserSession, currentUser, cartItems }) => {
 
   useEffect(()=>{
     checkUserSession();
@@ -32,7 +33,12 @@ const App = ({ checkUserSession, currentUser }) => {
           <Suspense fallback={<Spinner />}>
             <Route exact path='/' component={HomePage} />
             <Route path='/shop' component={ShopPage} />
-            <Route exact path='/checkout' component={CheckoutPage} />
+            <Route 
+            exact 
+            path='/checkout'
+            render={()=> 
+              cartItems  ? <CheckoutPage /> : <Redirect to='/shop' />}
+            />
             <Route
               exact
               path='/signin'
@@ -49,7 +55,8 @@ const App = ({ checkUserSession, currentUser }) => {
 
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  cartItems: selectCartItemsCount
 });
 
 const mapDispatchToProps = dispatch => ({

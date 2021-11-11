@@ -14,10 +14,11 @@ import {
     TestWarningccinfoContainer
 } from "./checkout.styles";
 
-const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => (
+const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => {
+    return(
     <CheckoutPageContainer>
 
-        {currentUser != null ? (<Fragment><h3>{currentUser.displayName}'s cart</h3><br /></Fragment>) : (null)}
+        {currentUser !== null ? (<Fragment><h3>{currentUser.displayName}'s cart</h3><br /></Fragment>) : (null)}
         <CheckoutHeaderContainer>
 
             <CheckoutHeaderBlock><span>Product</span></CheckoutHeaderBlock>
@@ -58,7 +59,6 @@ const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => (
                             currencyDisplay: 'symbol',
                         }).format(total + tax)}</span>
                     </TotalContainer>
-                    {(total <= 49.99 && total > 0) ? (<Fragment ></Fragment>) : null}
                     <TestWarningccinfoContainer>
                         * * * * <br />Please use the folowing credit card for payments
                         <br />
@@ -84,7 +84,9 @@ const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => (
             </TotalContainer>
         }
     </CheckoutPageContainer>
-)
+    )
+    }
+    
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal,
