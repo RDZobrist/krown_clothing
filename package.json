@@ -9,6 +9,7 @@
     "client": "cd client && pnpm start",
     "server": "nodemon server.js",
     "build": "cd client && npm run build",
+    "pushGit": "git push git@github.com:RDZobrist/krown_clothing.git && git status",
     "dev": "concurrently --kill-others-on-fail \"pnpm server\" \"pnpm client\"",
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
