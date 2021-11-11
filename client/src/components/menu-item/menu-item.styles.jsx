@@ -18,7 +18,7 @@ export const MenuItemContainer = styled.div`
 			transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 		}
 		& .content {
-			opacity: 0.9;
+			opacity: 0.85;
 		}
 	}
 	&:first-child {
@@ -51,6 +51,7 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+
 `;
 
 export const ContentTitle = styled.span`

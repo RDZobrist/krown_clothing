@@ -11,6 +11,7 @@ import { GlobalStyle} from './global.styles'
 import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 import { selectCartItemsCount } from './redux/cart/cart.selectors';
+import ContactUsPage from './pages/contact-us/contact-us.page.component';
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'));
@@ -32,7 +33,9 @@ const App = ({ checkUserSession, currentUser, cartItems }) => {
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
             <Route exact path='/' component={HomePage} />
+            <Route  path='/contactus' component={ContactUsPage} />
             <Route path='/shop' component={ShopPage} />
+
             <Route 
             exact 
             path='/checkout'
