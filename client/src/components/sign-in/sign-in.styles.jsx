@@ -9,6 +9,6 @@ export const SigninContainer = styled.div`
 export const SigninandSignupButtonContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    border-radius: .777vh;
-`;
+    border-radius: 3px;
+    `;
 

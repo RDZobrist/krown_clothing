@@ -10,7 +10,8 @@ export const CollectionItemContainer = styled.div`
   position: relative;
   &:hover {
     .image {
-      opacity: 0.8;
+      opacity: 0.92;
+      
     }
     button {
       opacity: 0.85;
@@ -20,10 +21,11 @@ export const CollectionItemContainer = styled.div`
 `;
 
 export const AddButton = styled(CustomButton)`
-  width: 80%;
+  width: 78%;
   opacity: 0.7;
   position: absolute;
   top: 255px;
+  border-radius: 3px;
   display: none;
 `;
 
@@ -32,6 +34,7 @@ export const BackgroundImage = styled.div`
   height: 95%;
   background-size: cover;
   background-position: center;
+  border-radius: 3px;
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;

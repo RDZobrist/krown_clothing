@@ -1,13 +1,9 @@
 import React from "react";
-import { SignupContainer } from "../sign-up/sign-up.styles";
 
-import { SpinnerContainer, SpinnerOverlay} from './spinner.styles';
+import './spinner.styles.sass'
 
- const Spinner = () => (
+const Spinner = () => ( <div className='spinner'></div> );
+   
 
-    <SpinnerOverlay>
-        <SignupContainer />
-    </SpinnerOverlay>
-);
 
 export default Spinner;
