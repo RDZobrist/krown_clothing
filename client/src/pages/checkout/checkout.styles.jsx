@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import CrownLogo from '../../assets/crown.png'
 export const CheckoutPageContainer = styled.div`  
-    width: 55%;
+    width: 58vw;
     min-height: 90vh;
+    margin-right: 11vw;
+    margin-left: 11vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-image: url(${CrownLogo})
-    margin: 50px auto 0;
+    margin: 50px auto;
 `;
  
 export const CheckoutHeaderContainer = styled.div`
