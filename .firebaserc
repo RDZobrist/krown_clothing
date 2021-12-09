@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "krownclothingdb"
-  }
+    "default": "krownclothingdb",
+    "earlydev": "krownclothingdb"
+  },
+  "targets": {}
 }
