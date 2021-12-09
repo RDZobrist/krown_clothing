@@ -12,7 +12,7 @@ margin: 0 auto 30px;
 
 export const CollectionItemsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1.27fr 1.27fr 1.27fr 1.27fr;
+  grid-template-columns: 1.25fr 1.25fr 1.25fr 1.25fr;
   grid-gap: 10px;
   & > div {
     margin-bottom: 25px;
