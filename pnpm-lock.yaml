@@ -27,6 +27,7 @@ specifiers:
   sass: ^1.46.0
   styled-components: ^5.3.3
   typescript: ^4.5.2
+  webpack: '>=4.0.0 <5.0.0 || >=5.0.0 <6.0.0'
 
 dependencies:
   '@babel/core': 7.16.0
@@ -44,6 +45,7 @@ dependencies:
   sass: 1.46.0
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
   typescript: 4.5.2
+  webpack: 4.44.2
 
 devDependencies:
   '@types/cors': 2.8.12

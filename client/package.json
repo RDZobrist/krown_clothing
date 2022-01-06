@@ -1,5 +1,4 @@
 {
-  "homepage": "https://rdzobrist.github.io/krown_clothing/client/build/index.html",
   "name": "krown_clothing",
   "version": "0.1.0",
   "private": true,
@@ -41,8 +40,6 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
     "database": "brew services start mongodb-community@5.0",
     "start": "react-scripts start",
     "build": "react-scripts build",
