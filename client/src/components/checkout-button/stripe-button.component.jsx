@@ -18,12 +18,11 @@ const StripeCheckoutButton = ({ price, clearCart }) => {
             token
         }
     }).then(res => {
-        alert('Your payment has been processed successfully.')
         clearCart();
 
     }).catch(err => {
         console.log('Payment error: ', err);
-        alert('Your payment didn\'t go through. Please be sure to use the provided credit cards');
+        clearCart();
     });
   };
 
