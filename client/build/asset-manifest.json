@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/krown_clothing/static/css/main.4ce5304e.chunk.css",
+    "main.js": "/krown_clothing/static/js/main.3f7b994e.chunk.js",
+    "main.js.map": "/krown_clothing/static/js/main.3f7b994e.chunk.js.map",
+    "runtime-main.js": "/krown_clothing/static/js/runtime-main.8fb7d89a.js",
+    "runtime-main.js.map": "/krown_clothing/static/js/runtime-main.8fb7d89a.js.map",
+    "static/js/2.45189410.chunk.js": "/krown_clothing/static/js/2.45189410.chunk.js",
+    "static/js/2.45189410.chunk.js.map": "/krown_clothing/static/js/2.45189410.chunk.js.map",
+    "static/js/3.af2ef31e.chunk.js": "/krown_clothing/static/js/3.af2ef31e.chunk.js",
+    "static/js/3.af2ef31e.chunk.js.map": "/krown_clothing/static/js/3.af2ef31e.chunk.js.map",
+    "static/js/4.402a15ff.chunk.js": "/krown_clothing/static/js/4.402a15ff.chunk.js",
+    "static/js/4.402a15ff.chunk.js.map": "/krown_clothing/static/js/4.402a15ff.chunk.js.map",
+    "static/js/5.2297f540.chunk.js": "/krown_clothing/static/js/5.2297f540.chunk.js",
+    "static/js/5.2297f540.chunk.js.map": "/krown_clothing/static/js/5.2297f540.chunk.js.map",
+    "static/js/6.a8abeb99.chunk.js": "/krown_clothing/static/js/6.a8abeb99.chunk.js",
+    "static/js/6.a8abeb99.chunk.js.map": "/krown_clothing/static/js/6.a8abeb99.chunk.js.map",
+    "static/css/7.b5c19204.chunk.css": "/krown_clothing/static/css/7.b5c19204.chunk.css",
+    "static/js/7.f6148c6c.chunk.js": "/krown_clothing/static/js/7.f6148c6c.chunk.js",
+    "static/js/7.f6148c6c.chunk.js.map": "/krown_clothing/static/js/7.f6148c6c.chunk.js.map",
+    "static/js/8.c22dfdbb.chunk.js": "/krown_clothing/static/js/8.c22dfdbb.chunk.js",
+    "static/js/8.c22dfdbb.chunk.js.map": "/krown_clothing/static/js/8.c22dfdbb.chunk.js.map",
+    "static/js/9.d3f073e6.chunk.js": "/krown_clothing/static/js/9.d3f073e6.chunk.js",
+    "static/js/9.d3f073e6.chunk.js.map": "/krown_clothing/static/js/9.d3f073e6.chunk.js.map",
+    "static/js/10.987e10eb.chunk.js": "/krown_clothing/static/js/10.987e10eb.chunk.js",
+    "static/js/10.987e10eb.chunk.js.map": "/krown_clothing/static/js/10.987e10eb.chunk.js.map",
+    "index.html": "/krown_clothing/index.html",
+    "static/css/7.b5c19204.chunk.css.map": "/krown_clothing/static/css/7.b5c19204.chunk.css.map",
+    "static/css/main.4ce5304e.chunk.css.map": "/krown_clothing/static/css/main.4ce5304e.chunk.css.map",
+    "static/js/2.45189410.chunk.js.LICENSE.txt": "/krown_clothing/static/js/2.45189410.chunk.js.LICENSE.txt",
+    "static/media/crown.png": "/krown_clothing/static/media/crown.303345ea.png",
+    "static/media/crown.3a4e2b15.svg": "/krown_clothing/static/media/crown.3a4e2b15.svg",
+    "static/media/shopping-bag.a688874f.svg": "/krown_clothing/static/media/shopping-bag.a688874f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8fb7d89a.js",
+    "static/js/2.45189410.chunk.js",
+    "static/css/main.4ce5304e.chunk.css",
+    "static/js/main.3f7b994e.chunk.js"
+  ]
+}
