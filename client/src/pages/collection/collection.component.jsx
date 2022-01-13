@@ -6,7 +6,8 @@ import { CollectionPageeContainer, CollectionTitle, CollectionItemsContainer } f
 import { selectCollection, selectCollections } from "../../redux/shop/shop.selectors";
 import ErrorBoundary from "../../components/error-boundary/error-boundary.component";
 // import './collection.styles.scss';
-
+import { getPerformance } from "firebase/performance";
+ getPerformance();
 const CollectionPage = ({ collection }) => {
     if (collection != undefined){
     const { title, items } = collection;

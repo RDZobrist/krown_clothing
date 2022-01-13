@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ContactFormContainer } from "../../components/contact-us/contact-us.styles";
 import CustomButton from "../../components/custom-button/custom-button.component";
-
+import { getPerformance } from "firebase/performance";
+getPerformance();
 
 // import ContactUs from "../../components/contact-us/contact-us.component";
 import './contact-us.page.styles';

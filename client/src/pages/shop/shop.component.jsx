@@ -8,7 +8,8 @@ import './shop.styles'
 import { ShopPageContainer } from './shop.styles';
 const CollectionOverviewContainer = lazy(() => import('../../components/collections-overview/collections-overview.container'));
 const CollectionPageContainer = lazy(() => import('../collection/collection.container'));
-
+import { getPerformance } from "firebase/performance";
+getPerformance();
 const ShopPage = ({ match, fetchCollectionStart }) => {
   useEffect(() => {
     fetchCollectionStart();
