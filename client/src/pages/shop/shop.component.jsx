@@ -6,9 +6,10 @@ import { fetchCollectionStartAsync, fetchCollectionStart } from '../../redux/sho
 import Spinner from '../../components/spinner/spinner.component';
 import './shop.styles'
 import { ShopPageContainer } from './shop.styles';
+import { getPerformance } from "firebase/performance";
+
 const CollectionOverviewContainer = lazy(() => import('../../components/collections-overview/collections-overview.container'));
 const CollectionPageContainer = lazy(() => import('../collection/collection.container'));
-import { getPerformance } from "firebase/performance";
 getPerformance();
 const ShopPage = ({ match, fetchCollectionStart }) => {
   useEffect(() => {

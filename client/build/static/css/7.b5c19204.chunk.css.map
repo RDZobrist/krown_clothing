@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/directory/directory.styles.scss"],"names":[],"mappings":"AAAA,gBACE,UAAA,CACA,YAAA,CACA,cAAA,CACA,6BAAA","file":"7.b5c19204.chunk.css","sourcesContent":[".directory-menu {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  \n}\n"]}

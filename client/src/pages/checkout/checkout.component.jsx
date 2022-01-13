@@ -14,7 +14,8 @@ import {
     TestWarningccinfoContainer
 } from "./checkout.styles";
 import { getPerformance } from "firebase/performance";
-const perf = const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => {
+ getPerformance(); 
+ const CheckoutPage = ({ currentUser, cartItems, total, tax = total * .08 }) => {
     return(
     <CheckoutPageContainer>
 
