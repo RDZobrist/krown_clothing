@@ -2,6 +2,7 @@ import React, {lazy, Suspense, useEffect} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { getPerformance } from "firebase/performance";
 
 
 import Header from './components/header/header.component';
@@ -55,6 +56,8 @@ const App = ({ checkUserSession, currentUser, cartItems }) => {
     </div>
     );
   }
+  const perf = getPerformance();
+  console.log('THis is perf: ',  perf)
 
 
 const mapStateToProps = createStructuredSelector({

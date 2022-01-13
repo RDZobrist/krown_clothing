@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import { getAnalytics } from "firebase/analytics";
 import {FacebookAuthProvider, signInWithPopup} from 'firebase/auth';
 
 
@@ -114,6 +115,8 @@ export const getCurrentUser = () => {
     }, reject);
   });
 };
+
+export const getAnalyticsfromGoogle = getAnalytics();
 
 export const auth = firebase.auth();
 

@@ -1,5 +1,5 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
-import { firestore, convertCollectionsSnapshotToMap } from "../../firebase/firebase.utils";
+import { firestore, convertCollectionsSnapshotToMap, getAnalyticsfromGoogle } from "../../firebase/firebase.utils";
 import {
     fetchCollectionSuccess,
     fetchCollectionFailure
